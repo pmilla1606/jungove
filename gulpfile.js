@@ -98,6 +98,7 @@ gulp.task("sass", function () {
     return gulp.src("scss/main.scss")
         .pipe(sass())
         .pipe(gulp.dest("./css"))
+        .pipe(gulp.dest("./_site/css"))
         .pipe(browserSync.reload({stream: true}))
 });
 
