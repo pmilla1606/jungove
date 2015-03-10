@@ -5,6 +5,7 @@ var sass         = require("gulp-sass");
 var rimraf       = require("rimraf");
 var htmlInjector = require("bs-html-injector");
 var outdir       = "_site";
+var deploy = require('gulp-gh-pages');
 
 /**
  * Create a Crossbow Builder
@@ -86,6 +87,11 @@ gulp.task("watch", function () {
                 });
         }
     });
+});
+
+gulp.task('deploy', function () {
+    return gulp.src('./_site/**/*')
+        .pipe(deploy(options));
 });
 
 gulp.task("sass", function () {
